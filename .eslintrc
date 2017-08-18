@@ -1,0 +1,22 @@
+{
+	"extends": "airbnb",
+	"env": {
+		"browser": true,
+		"jest": true
+	},
+	"rules": {
+		"comma-dangle": "off",
+		"indent": ["error", "tab"],
+		"no-console": "off",
+		"no-tabs": "off",
+		"import/no-extraneous-dependencies": [
+			"error",
+			{
+				"devDependencies": true
+			}
+		],
+		"react/jsx-indent": ["error", "tab"],
+		"react/jsx-indent-props": ["error", "tab"],
+		"react/jsx-wrap-multilines": "off"
+	}
+}
