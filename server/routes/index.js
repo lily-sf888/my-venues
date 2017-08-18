@@ -17,4 +17,8 @@ router.get('/healthcheck', (req, res) => {
 	res.send({ message: 'We are healthy and good' });
 });
 
+router.get('/awesome', (req, res) => {
+	res.send({ message: 'You are awesome' });
+});
+
 module.exports = router;
