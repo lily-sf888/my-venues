@@ -13,9 +13,7 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		fetch(
-			'https://api.foursquare.com/v2/venues/search?ll=40.7,-74&client_id=TQBSYR0VMSRQMZKUI5ENGVL3FRIAJI4N2DNKDOYUGABETF10&client_secret=FEHBEA22GU34DGOKLQKB1533ITMXQN5QTZK2VWTVQQZI2LBP&v=20170821'
-		)
+		fetch('/awesome')
 			.then((response) => {
 				if (response.status >= 400) {
 					throw new Error('Bad response from server');
