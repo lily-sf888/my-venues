@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const routes = require('./routes');
 const errorHandling = require('./middleware/error.js');
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3002;
 const app = express();
 
 app.use(logger('dev'));
