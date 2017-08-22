@@ -12,18 +12,18 @@ class App extends Component {
 		};
 	}
 
-	componentDidMount() {
-		fetch('/awesome')
-			.then((response) => {
-				if (response.status >= 400) {
-					throw new Error('Bad response from server');
-				}
-				return response;
-			})
-			.then((data) => {
-				console.log('new data', data);
-			});
-	}
+	// componentDidMount() {
+	// 	fetch('/awesome')
+	// 		.then((response) => {
+	// 			if (response.status >= 400) {
+	// 				throw new Error('Bad response from server');
+	// 			}
+	// 			return response;
+	// 		})
+	// 		.then((data) => {
+	// 			console.log('new data', data);
+	// 		});
+	// }
 
 	render() {
 		return (
