@@ -23,6 +23,7 @@ router.get('/awesome', (req, res) => {
 	request.get(
 		'http://api.openweathermap.org/data/2.5/weather?q=SanFrancisco&appid=05cb91f4ff2e4ea4f2ff78e2a59d0dbe',
 		(err, response, body) => {
+			console.log('hello!!');
 			if (err) {
 				return console.error(err);
 			}
