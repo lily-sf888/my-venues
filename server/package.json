@@ -9,13 +9,17 @@
 		"test": "node tests/*.js | faucet"
 	},
 	"lint-staged": {
-		"*.js": ["eslint --color", "git add"]
+		"*.js": [
+			"eslint --color",
+			"git add"
+		]
 	},
 	"dependencies": {
 		"body-parser": "~1.17.1",
 		"debug": "~2.6.3",
 		"express": "~4.15.2",
-		"morgan": "~1.8.1"
+		"morgan": "~1.8.1",
+		"request": "^2.81.0"
 	},
 	"devDependencies": {
 		"eslint": "^4.3.0",

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import fetch from 'isomorphic-fetch';
 import 'es6-promise/auto';
+import './App.css';
+import logo from './logo.svg';
 
 class App extends Component {
 	constructor(props) {
@@ -18,7 +18,7 @@ class App extends Component {
 				if (response.status >= 400) {
 					throw new Error('Bad response from server');
 				}
-				return response.json();
+				return response;
 			})
 			.then((data) => {
 				console.log('new data', data);
