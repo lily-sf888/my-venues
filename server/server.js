@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
@@ -26,7 +27,7 @@ app.use((req, res, next) => {
 app.use(errorHandling);
 
 // start server
-app.listen(port, (err) => {
+app.listen(port, err => {
 	if (err) {
 		console.error(err);
 		process.exit(1);
