@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const routes = require('./routes');
 const errorHandling = require('./middleware/error.js');
 
+const env = process.env.CLIENT_ID;
+
 const port = process.env.PORT || 3002;
 const app = express();
 
@@ -27,7 +29,7 @@ app.use((req, res, next) => {
 app.use(errorHandling);
 
 // start server
-app.listen(port, err => {
+app.listen(port, (err) => {
 	if (err) {
 		console.error(err);
 		process.exit(1);

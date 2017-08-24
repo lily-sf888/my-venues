@@ -13,6 +13,7 @@ router.get('/', (req, res, next) => {
 
 /**
  * Base routes
+ *https://api.foursquare.com/v2/venues/explore?ll=40.7,-74&client_id=process.env.CLIENT_ID&client_secret=process.env.CLIENT_SECRET&v=20170824&query=yoga
  *
  */
 router.get('/healthcheck', (req, res) => {
@@ -21,16 +22,16 @@ router.get('/healthcheck', (req, res) => {
 
 router.get('/awesome', (req, res) => {
 	request.get(
-		'http://api.openweathermap.org/data/2.5/weather?q=SanFrancisco&appid=05cb91f4ff2e4ea4f2ff78e2a59d0dbe',
+		'https://api.foursquare.com/v2/venues/explore?ll=40.7,-74&client_id=process.env.CLIENT_ID&client_secret=process.env.CLIENT_SECRET&v=20170824&query=yoga',
 		(err, response, body) => {
 			if (err) {
 				return console.error(err);
 			}
 
 			const responseData = JSON.parse(body);
-			// const dataWeWant = responseData.responseData;
+			const dataWeWant = responseData.venue;
 
-			res.send({ weather: responseData });
+			res.send({ dataWeWant });
 		}
 	);
 });
