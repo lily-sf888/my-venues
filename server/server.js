@@ -5,8 +5,6 @@ const bodyParser = require('body-parser');
 const routes = require('./routes');
 const errorHandling = require('./middleware/error.js');
 
-const env = process.env.CLIENT_ID;
-
 const port = process.env.PORT || 3002;
 const app = express();
 

@@ -4,6 +4,8 @@ import 'es6-promise/auto';
 import './App.css';
 import logo from './logo.svg';
 
+// https://developers.google.com/maps/documentation/javascript/earthquakes
+
 class App extends Component {
 	constructor(props) {
 		super(props);

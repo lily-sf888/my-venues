@@ -4,6 +4,10 @@ const router = express.Router();
 
 const request = require('request');
 
+const clientId = process.env.CLIENT_ID;
+
+const clientSecret = process.env.CLIENT_SECRET;
+
 /**
  * Anything that needs to happen to all requests goes here
  */
@@ -22,14 +26,14 @@ router.get('/healthcheck', (req, res) => {
 
 router.get('/awesome', (req, res) => {
 	request.get(
-		'https://api.foursquare.com/v2/venues/explore?ll=40.7,-74&client_id=process.env.CLIENT_ID&client_secret=process.env.CLIENT_SECRET&v=20170824&query=yoga',
+		`https://api.foursquare.com/v2/venues/explore?ll=40.7,-74&client_id=${clientId}&client_secret=${clientSecret}&v=20170824&query=yoga`,
 		(err, response, body) => {
 			if (err) {
 				return console.error(err);
 			}
 
 			const responseData = JSON.parse(body);
-			const dataWeWant = responseData.venue;
+			const dataWeWant = responseData.response.groups[0].items;
 
 			res.send({ dataWeWant });
 		}
