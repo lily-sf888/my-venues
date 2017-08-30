@@ -15,6 +15,7 @@
 		]
 	},
 	"dependencies": {
+		"@google/maps": "^0.4.3",
 		"body-parser": "~1.17.1",
 		"debug": "~2.6.3",
 		"dotenv": "^4.0.0",

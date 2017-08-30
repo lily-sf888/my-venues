@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 
 // get user's current position with HTML Geolocation
-// const showPosition = (position) => {
-// 	const userLat = position.coords.latitude;
-// 	const userLng = position.coords.longitude;
+// let userLat;
+// let userLng;
+
+// const showPosition = position => {
+// 	userLat = position.coords.latitude;
+// 	userLng = position.coords.longitude;
+// 	console.log(userLat, userLng);
 // };
 
 // const getLocation = () => {
@@ -24,47 +28,49 @@ export class MapContainer extends React.Component {
 		};
 
 		this.getLocation = this.getLocation.bind(this);
-		this.showPosition = this.showPosition.bind(this);
+		this.setLocation = this.setLocation.bind(this);
 	}
-
-	componentWillMount() {
-		getLocation();
+	componentDidMount() {
+		this.getLocation();
 	}
 
 	getLocation() {
-		if (this.navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(showPosition);
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(this.setLocation);
 		} else {
 			console.log('Geolocation is not supported by this browser');
 		}
 	}
 
-	showPosition() {
-		const userLat = this.position.coords.latitude;
-		const userLng = this.position.coords.longitude;
-
-		this.setState({
-			userLat,
-			userLng
-		});
+	setLocation(position) {
+		this.setState(() => ({
+			userLat: position.coords.latitude,
+			userLng: position.coords.longitude
+		}));
 	}
 
 	render() {
-		console.log('userLat', this.state.userLat);
-		return (
-			<Map
-				google={this.props.google}
-				style={{ height: '50%', width: '50%' }}
-				zoom={8}
-				initialCenter={{
-					lat: this.state.userLat,
-					lng: this.state.userLng
-				}}
-			>
-				<Marker name={'current location'} position={{ lat: 37.778519, lng: -122.40564 }} />
-				<Marker name={'Dolores park'} position={{ lat: 37.759703, lng: -122.428093 }} />
-			</Map>
-		);
+		const userLat = this.state.userLat;
+		const userLng = this.state.userLng;
+
+		return {
+			userLat: userLng ? (
+				<Map
+					google={this.props.google}
+					style={{ height: '50%', width: '50%' }}
+					zoom={8}
+					initialCenter={{
+						lat: { userLat },
+						lng: { userLng }
+					}}
+				>
+					<Marker name={'current location'} position={{ lat: 37.778519, lng: -122.40564 }} />
+					<Marker name={'Dolores park'} position={{ lat: 37.759703, lng: -122.428093 }} />
+				</Map>
+			) : (
+				<div>Loading...</div>
+			)
+		};
 	}
 }
 
