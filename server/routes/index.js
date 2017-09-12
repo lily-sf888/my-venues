@@ -33,9 +33,10 @@ router.get('/awesome', (req, res) => {
 			}
 
 			const responseData = JSON.parse(body);
-			const dataWeWant = responseData.response.groups[0].items;
+			const latitude = responseData.response.groups[0].items[0].venue.location.lat;
+			const longitude = responseData.response.groups[0].items[0].venue.location.lng;
 
-			res.send({ dataWeWant });
+			res.render({ latitude, longitude });
 		}
 	);
 });
