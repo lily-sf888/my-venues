@@ -36,7 +36,8 @@ router.get('/awesome', (req, res) => {
 			const latitude = responseData.response.groups[0].items[0].venue.location.lat;
 			const longitude = responseData.response.groups[0].items[0].venue.location.lng;
 
-			res.render({ latitude, longitude });
+			// res.json({ latitude, longitude });
+			res.send({ latitude, longitude });
 		}
 	);
 });

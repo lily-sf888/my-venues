@@ -25,22 +25,21 @@ class App extends Component {
 				if (response.status >= 400) {
 					throw new Error('Bad response from server');
 				}
-				return response;
+				return response.json();
 			})
 			.then((data) => {
-				console.log('new data', data);
+				// call method that needs this data
+				return this.myMethod(data);
+				debugger;
+			})
+			.catch((err) => {
+				// put error handling code here
 			});
+	}
 
-		fetch('/awesome')
-			.then((response) => {
-				if (response.status >= 400) {
-					throw new Error('Bad response from server');
-				}
-				return response;
-			})
-			.then((data) => {
-				console.log('new data', data);
-			});
+	myMethod(data) {
+		// probably need to bind this
+		debugger;
 	}
 
 	render() {
