@@ -90,9 +90,8 @@ export class MapContainer extends Component {
 						{venues.map((item, index) => {
 							const lat = item.venue.location.lat;
 							const lng = item.venue.location.lng;
-							console.log('lati', lat);
 
-							return <Marker location={{ lat, lng }} key={index} />;
+							return <Marker position={{ lat, lng }} key={index} />;
 						})}
 					</Map>
 				)}
