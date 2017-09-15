@@ -53,7 +53,7 @@ export class MapContainer extends Component {
 	}
 
 	getResults(data) {
-		console.log(data.venues[0].venue.location.lat);
+		console.log(data.venues);
 
 		this.setState(() => ({
 			venues: data.venues
@@ -86,18 +86,14 @@ export class MapContainer extends Component {
 								scaledSize: new this.props.google.maps.Size(20, 20)
 							}}
 						/>
-						<div>
-							{venues.map((item, index) => {
-								const lat = item.venue.location.lat;
-								const lng = item.venue.location.lng;
 
-								return (
-									<div key={index}>
-										<Marker location={{ lat, lng }} />
-									</div>
-								);
-							})}
-						</div>
+						{venues.map((item, index) => {
+							const lat = item.venue.location.lat;
+							const lng = item.venue.location.lng;
+							console.log('lati', lat);
+
+							return <Marker location={{ lat, lng }} key={index} />;
+						})}
 					</Map>
 				)}
 			</div>
