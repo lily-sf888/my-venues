@@ -20,24 +20,23 @@ router.get('/', (req, res, next) => {
  *https://api.foursquare.com/v2/venues/explore?ll=40.7,-74&client_id=process.env.CLIENT_ID&client_secret=process.env.CLIENT_SECRET&v=20170824&query=yoga
  *
  */
-router.get('/healthcheck', (req, res) => {
-	res.send({ message: 'We are healthy and good' });
-});
+// router.get('/healthcheck', (req, res) => {
+// 	res.send({ message: 'We are healthy and good' });
+// });
 
-router.get('/awesome', (req, res) => {
+router.get('/mylocation', (req, res) => {
 	request.get(
-		`https://api.foursquare.com/v2/venues/explore?ll=40.7,-74&client_id=${clientId}&client_secret=${clientSecret}&v=20170824&query=yoga`,
+		`https://api.foursquare.com/v2/venues/explore?ll=37.7,-122.47&client_id=${clientId}&client_secret=${clientSecret}&v=20170824&query=yoga`,
 		(err, response, body) => {
 			if (err) {
 				return console.error(err);
 			}
 
 			const responseData = JSON.parse(body);
-			const latitude = responseData.response.groups[0].items[0].venue.location.lat;
-			const longitude = responseData.response.groups[0].items[0].venue.location.lng;
+			const venues = responseData.response.groups[0].items;
+			// const longitude = responseData.response.groups[0].items[0].venue.location.lng;
 
-			// res.json({ latitude, longitude });
-			res.send({ latitude, longitude });
+			res.send({ venues });
 		}
 	);
 });

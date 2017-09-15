@@ -12,36 +12,6 @@ const heart = require('./images/heart.gif');
 // get google maps with markers
 
 class App extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			data: null
-		};
-	}
-
-	componentDidMount() {
-		fetch('/awesome')
-			.then((response) => {
-				if (response.status >= 400) {
-					throw new Error('Bad response from server');
-				}
-				return response.json();
-			})
-			.then((data) => {
-				// call method that needs this data
-				return this.myMethod(data);
-				debugger;
-			})
-			.catch((err) => {
-				// put error handling code here
-			});
-	}
-
-	myMethod(data) {
-		// probably need to bind this
-		debugger;
-	}
-
 	render() {
 		return (
 			<div className="App">
