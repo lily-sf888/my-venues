@@ -22,7 +22,7 @@ export class MapContainer extends Component {
 
 		// fetch for getting foursquare data
 		fetch('/mylocation')
-			.then((response) => {
+			.then(response => {
 				if (response.status >= 400) {
 					throw new Error('Bad response from server');
 				}
@@ -32,7 +32,7 @@ export class MapContainer extends Component {
 				// call method that needs this data
 				this.getResults(data)
 			)
-			.catch((err) => {
+			.catch(err => {
 				console.log(err);
 			});
 	}
@@ -56,7 +56,7 @@ export class MapContainer extends Component {
 		console.log(data.venues[0].venue.location.lat);
 
 		this.setState(() => ({
-			venues: data
+			venues: data.venues
 		}));
 	}
 
@@ -87,12 +87,12 @@ export class MapContainer extends Component {
 							}}
 						/>
 						<div>
-							{venues.map((item) => {
+							{venues.map((item, index) => {
 								const lat = item.venue.location.lat;
 								const lng = item.venue.location.lng;
 
 								return (
-									<div>
+									<div key={index}>
 										<Marker location={{ lat, lng }} />
 									</div>
 								);
