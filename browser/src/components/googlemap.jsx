@@ -16,7 +16,6 @@ export class MapContainer extends Component {
 
 		this.getLocation = this.getLocation.bind(this);
 		this.setLocation = this.setLocation.bind(this);
-		this.getResults = this.getResults.bind(this);
 	}
 	componentDidMount() {
 		this.getLocation();
@@ -42,15 +41,12 @@ export class MapContainer extends Component {
 
 		Services.getVenues(userLat, userLng)
 			.then((data) => {
-				debugger;
+				this.setState({
+					venues: data.venues
+				});
 			});
 	}
 
-	getResults(data) {
-		this.setState(() => ({
-			venues: data.venues
-		}));
-	}
 
 	render() {
 		const userLat = this.state.userLat;

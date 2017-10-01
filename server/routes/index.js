@@ -25,8 +25,11 @@ router.get('/', (req, res, next) => {
 // });
 
 router.get('/mylocation', (req, res) => {
+	const query = req.query;
+	const longLat = `${query.userLat},${query.userLng}`;
+
 	request.get(
-		`https://api.foursquare.com/v2/venues/explore?ll=37.7,-122.47&client_id=${clientId}&client_secret=${clientSecret}&v=20170824&query=yoga`,
+		`https://api.foursquare.com/v2/venues/explore?ll=${longLat}&client_id=${clientId}&client_secret=${clientSecret}&v=20170824&query=yoga`,
 		(err, response, body) => {
 			if (err) {
 				return console.error(err);
