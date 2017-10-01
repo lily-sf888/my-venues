@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
+import Services from '../services/venues';
 
 const heart = require('../images/heart.gif');
 const purpleHeart = require('../images/purple-heart.png');
@@ -19,23 +20,8 @@ export class MapContainer extends Component {
 	}
 	componentDidMount() {
 		this.getLocation();
-
-		// fetch for getting foursquare data
-		fetch('/mylocation')
-			.then(response => {
-				if (response.status >= 400) {
-					throw new Error('Bad response from server');
-				}
-				return response.json();
-			})
-			.then(data =>
-				// call method that needs this data
-				this.getResults(data)
-			)
-			.catch(err => {
-				console.log(err);
-			});
 	}
+
 
 	getLocation() {
 		if (navigator.geolocation) {
@@ -50,11 +36,17 @@ export class MapContainer extends Component {
 			userLat: position.coords.latitude,
 			userLng: position.coords.longitude
 		}));
+
+		const userLat = this.state.userLat;
+		const userLng = this.state.userLng;
+
+		Services.getVenues(userLat, userLng)
+			.then((data) => {
+				debugger;
+			});
 	}
 
 	getResults(data) {
-		console.log(data.venues);
-
 		this.setState(() => ({
 			venues: data.venues
 		}));
@@ -63,6 +55,7 @@ export class MapContainer extends Component {
 	render() {
 		const userLat = this.state.userLat;
 		const userLng = this.state.userLng;
+
 
 		const venues = this.state.venues;
 
@@ -82,17 +75,29 @@ export class MapContainer extends Component {
 							name={'User location'}
 							icon={{
 								url: heart,
-								anchor: new this.props.google.maps.Point(20, 20),
-								scaledSize: new this.props.google.maps.Size(20, 20)
+								anchor: new this.props.google.maps.Point(22, 22),
+								scaledSize: new this.props.google.maps.Size(22, 22)
 							}}
 						/>
 
-						{venues.map((item, index) => {
-							const lat = item.venue.location.lat;
-							const lng = item.venue.location.lng;
+						{venues &&
+							venues.map((item, index) => {
+								const lat = item.venue.location.lat;
+								const lng = item.venue.location.lng;
+								const key = index;
 
-							return <Marker position={{ lat, lng }} key={index} />;
-						})}
+								return (
+									<Marker
+										position={{ lat, lng }}
+										key={key}
+										icon={{
+											url: purpleHeart,
+											anchor: new this.props.google.maps.Point(20, 20),
+											scaledSize: new this.props.google.maps.Size(20, 20)
+										}}
+									/>
+								);
+							})}
 					</Map>
 				)}
 			</div>
