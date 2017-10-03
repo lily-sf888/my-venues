@@ -4,7 +4,7 @@ import 'es6-promise/auto';
 import './App.css';
 
 import GoogleApiWrapper from './components/googlemap';
-import SearchBox from './components/searchbox';
+
 
 const heart = require('./images/heart.gif');
 
@@ -19,7 +19,7 @@ class App extends Component {
 					<img src={heart} className="App-logo" alt="heart-logo" />
 					<h2>Find My Venue</h2>
 				</div>
-				<SearchBox />
+
 				<GoogleApiWrapper />
 			</div>
 		);

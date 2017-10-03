@@ -4,8 +4,8 @@
  * @param  {string} searchTerm: term to search for matching venues
  * @return {promise}
  */
-const getVenues = (userLat, userLng) => {
-	const url = `/mylocation?userLat=${userLat}&userLng=${userLng}`;
+const getVenues = (userLat, userLng, searchText) => {
+	const url = `/mylocation?userLat=${userLat}&userLng=${userLng}&searchText=${searchText}`;
 
 	// fetch for getting foursquare data
 	return fetch(url)

@@ -20,16 +20,15 @@ router.get('/', (req, res, next) => {
  *https://api.foursquare.com/v2/venues/explore?ll=40.7,-74&client_id=process.env.CLIENT_ID&client_secret=process.env.CLIENT_SECRET&v=20170824&query=yoga
  *
  */
-// router.get('/healthcheck', (req, res) => {
-// 	res.send({ message: 'We are healthy and good' });
-// });
 
 router.get('/mylocation', (req, res) => {
+	// accessing query with latitude and longitude info and storing it
 	const query = req.query;
 	const longLat = `${query.userLat},${query.userLng}`;
+	const searchText = `${query.searchText}`;
 
 	request.get(
-		`https://api.foursquare.com/v2/venues/explore?ll=${longLat}&client_id=${clientId}&client_secret=${clientSecret}&v=20170824&query=yoga`,
+		`https://api.foursquare.com/v2/venues/explore?ll=${longLat}&client_id=${clientId}&client_secret=${clientSecret}&v=20170824&query=${searchText}`,
 		(err, response, body) => {
 			if (err) {
 				return console.error(err);
@@ -37,7 +36,6 @@ router.get('/mylocation', (req, res) => {
 
 			const responseData = JSON.parse(body);
 			const venues = responseData.response.groups[0].items;
-			// const longitude = responseData.response.groups[0].items[0].venue.location.lng;
 
 			res.send({ venues });
 		}

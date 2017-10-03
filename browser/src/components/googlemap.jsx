@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 import Services from '../services/venues';
 
+
 const heart = require('../images/heart.gif');
 const purpleHeart = require('../images/purple-heart.png');
 
@@ -11,9 +12,11 @@ export class MapContainer extends Component {
 		this.state = {
 			userLat: null,
 			userLng: null,
-			venues: null
+			venues: null,
+			value: ''
 		};
-
+		this.handleChange = this.handleChange.bind(this);
+		this.handleKeyPress = this.handleKeyPress.bind(this);
 		this.getLocation = this.getLocation.bind(this);
 		this.setLocation = this.setLocation.bind(this);
 	}
@@ -22,6 +25,7 @@ export class MapContainer extends Component {
 	}
 
 
+	// uses geolocation api to get current user's location
 	getLocation() {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(this.setLocation);
@@ -30,20 +34,43 @@ export class MapContainer extends Component {
 		}
 	}
 
+
 	setLocation(position) {
 		this.setState(() => ({
 			userLat: position.coords.latitude,
 			userLng: position.coords.longitude
 		}));
 
+
+		// Services.getVenues(userLat, userLng)
+		// 	.then((data) => {
+		// 		this.setState({
+		// 			venues: data.venues
+		// 		});
+		// 	});
+	}
+
+	handleChange(e) {
+		this.setState({
+			value: e.target.value
+		});
+	}
+
+	handleKeyPress(e) {
+		if (e.key !== 'Enter') return;
+
+		e.preventDefault();
+
+		const searchText = this.state.value;
 		const userLat = this.state.userLat;
 		const userLng = this.state.userLng;
 
-		Services.getVenues(userLat, userLng)
+		Services.getVenues(userLat, userLng, searchText)
 			.then((data) => {
 				this.setState({
 					venues: data.venues
 				});
+				debugger;
 			});
 	}
 
@@ -57,6 +84,18 @@ export class MapContainer extends Component {
 
 		return (
 			<div className="map">
+				<div className="search">
+					<form>
+						<input
+							type="text"
+							name="search"
+							placeholder="Search..."
+							value={this.state.value}
+							onChange={this.handleChange}
+							onKeyPress={this.handleKeyPress}
+						/>
+					</form>
+				</div>
 				{userLat && (
 					<Map
 						google={this.props.google}
