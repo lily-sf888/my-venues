@@ -34,28 +34,21 @@ export class MapContainer extends Component {
 		}
 	}
 
-
 	setLocation(position) {
 		this.setState(() => ({
 			userLat: position.coords.latitude,
 			userLng: position.coords.longitude
 		}));
-
-
-		// Services.getVenues(userLat, userLng)
-		// 	.then((data) => {
-		// 		this.setState({
-		// 			venues: data.venues
-		// 		});
-		// 	});
 	}
 
+	// capture search value user enters
 	handleChange(e) {
 		this.setState({
 			value: e.target.value
 		});
 	}
-
+	// after user hits enter fire off getVenues and bring back 
+	// foursquare data
 	handleKeyPress(e) {
 		if (e.key !== 'Enter') return;
 
@@ -68,10 +61,18 @@ export class MapContainer extends Component {
 		Services.getVenues(userLat, userLng, searchText)
 			.then((data) => {
 				this.setState({
-					venues: data.venues
+					venues: data.venues,
+					name: data.venues[0].venue.name,
+					address: data.venues[0].venue.location.address,
+					rating: data.venues[0].venue.rating,
+					checkins: data.venues[0].venue.stats.checkinsCount,
+					url: data.venues[0].venue.url
 				});
-				debugger;
 			});
+
+		this.setState({
+			value: ''
+		});
 	}
 
 
