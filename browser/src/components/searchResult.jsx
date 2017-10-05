@@ -12,5 +12,5 @@ const SearchResult = ({ venues }) => {
 	);
 };
 
-export default SearchResult
-;
+export default SearchResult;
+

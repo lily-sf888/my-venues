@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 import Services from '../services/venues';
-
+import SearchResult from './searchResult';
 
 const heart = require('../images/heart.gif');
 const purpleHeart = require('../images/purple-heart.png');
@@ -40,14 +40,6 @@ export class MapContainer extends Component {
 			userLat: position.coords.latitude,
 			userLng: position.coords.longitude
 		}));
-
-
-		// Services.getVenues(userLat, userLng)
-		// 	.then((data) => {
-		// 		this.setState({
-		// 			venues: data.venues
-		// 		});
-		// 	});
 	}
 
 	handleChange(e) {
@@ -70,7 +62,6 @@ export class MapContainer extends Component {
 				this.setState({
 					venues: data.venues
 				});
-				debugger;
 			});
 	}
 
@@ -135,7 +126,9 @@ export class MapContainer extends Component {
 							})}
 					</Map>
 				)}
+
 			</div>
+
 		);
 	}
 }
