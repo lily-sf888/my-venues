@@ -3,16 +3,17 @@ import Services from '../services/venues';
 
 
 const SearchResult = ({ venues }) => {
-	const name = venues.map((item, index) =>
-		<td key={index}>{item.venue.name}</td>
+	const venue = venues.map((item, index) =>
+		<table>
+			<tr><td key={index}>{item.venue.name}</td></tr>
+			<tr><td key={index}>{item.venue.location.address}</td></tr>
+		</table>
 	);
 
 	return (
-		<table>
-			<tbody>
-				{name}
-			</tbody>
-		</table>
+		<div>
+			{venue}
+		</div>
 	);
 };
 
