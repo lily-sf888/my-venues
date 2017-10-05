@@ -50,6 +50,14 @@ input[type='text']:focus {
 }
 
 #search-result {
-	color: red;
+	color: black;
 	margin-top: 60%;
+}
+
+table {
+	margin: 5% 0;
+}
+
+th, td {
+	text-align: left;
 }
