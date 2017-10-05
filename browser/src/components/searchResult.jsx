@@ -4,13 +4,15 @@ import Services from '../services/venues';
 
 const SearchResult = ({ venues }) => {
 	const name = venues.map((item, index) =>
-		<span key={index}>{item.venue.name}</span>
+		<td key={index}>{item.venue.name}</td>
 	);
 
 	return (
-		<div>
-			{name}
-		</div>
+		<table>
+			<tbody>
+				{name}
+			</tbody>
+		</table>
 	);
 };
 
