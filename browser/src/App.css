@@ -27,7 +27,7 @@ body {
 }
 
 .search {
-	padding-top: 2%;
+	padding: 2% 0;
 }
 
 input[type='text'] {
