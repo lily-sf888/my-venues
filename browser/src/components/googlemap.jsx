@@ -69,6 +69,7 @@ export class MapContainer extends Component {
 		const venues = this.state.venues;
 
 		return (
+
 			<div className="map">
 				<div className="search">
 					<form>
@@ -120,7 +121,10 @@ export class MapContainer extends Component {
 							})}
 					</Map>
 				)}
+				<div id="search-result">hello!!!</div>
 			</div>
+
+
 		);
 	}
 }
