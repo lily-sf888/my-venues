@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 import Services from '../services/venues';
+import SearchResult from './searchResult';
 
 const heart = require('../images/heart.gif');
 const purpleHeart = require('../images/purple-heart.png');
@@ -121,7 +122,12 @@ export class MapContainer extends Component {
 							})}
 					</Map>
 				)}
-				<div id="search-result">hello!!!</div>
+				{venues &&
+					<div id="search-result"><SearchResult
+						venues={venues}
+					/>
+					</div>
+				}
 			</div>
 
 
