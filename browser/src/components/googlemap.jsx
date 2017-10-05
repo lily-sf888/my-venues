@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 import Services from '../services/venues';
-import SearchResult from './searchResult';
 
 const heart = require('../images/heart.gif');
 const purpleHeart = require('../images/purple-heart.png');
@@ -24,7 +23,6 @@ export class MapContainer extends Component {
 		this.getLocation();
 	}
 
-
 	// uses geolocation api to get current user's location
 	getLocation() {
 		if (navigator.geolocation) {
@@ -33,7 +31,6 @@ export class MapContainer extends Component {
 			console.log('Geolocation is not supported by this browser');
 		}
 	}
-
 
 	setLocation(position) {
 		this.setState(() => ({
@@ -69,8 +66,6 @@ export class MapContainer extends Component {
 	render() {
 		const userLat = this.state.userLat;
 		const userLng = this.state.userLng;
-
-
 		const venues = this.state.venues;
 
 		return (
@@ -105,7 +100,6 @@ export class MapContainer extends Component {
 								scaledSize: new this.props.google.maps.Size(22, 22)
 							}}
 						/>
-
 						{venues &&
 							venues.map((item, index) => {
 								const lat = item.venue.location.lat;
@@ -126,9 +120,7 @@ export class MapContainer extends Component {
 							})}
 					</Map>
 				)}
-
 			</div>
-
 		);
 	}
 }
