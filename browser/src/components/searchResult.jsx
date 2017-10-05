@@ -6,7 +6,10 @@ const SearchResult = ({ venues }) => {
 	const venue = venues.map((item, index) =>
 		<table>
 			<tr><td key={index}>{item.venue.name}</td></tr>
-			<tr><td key={index}>{item.venue.location.address}</td></tr>
+			<tr><td key={index}>{item.venue.location.address}, {item.venue.location.city}</td></tr>
+			<tr><td key={index}>{item.venue.rating}</td></tr>
+			<tr><td key={index}>{item.venue.stats.checkinsCount}</td></tr>
+			<tr><td key={index}>{item.venue.url}</td></tr>
 		</table>
 	);
 
