@@ -1,5 +1,5 @@
 body {
-	background-image: url('images/gradient-yoga.png');
+	background-color: #efeff4;
 }
 
 .App {
@@ -56,8 +56,15 @@ input[type='text']:focus {
 
 table {
 	margin: 5% 0;
+	border: 1px solid #ddd;
+	background-color: white;
 }
 
 th, td {
 	text-align: left;
+	
+}
+
+table tr:nth-child(even) {
+	background-color: #f2f2f2;
 }
