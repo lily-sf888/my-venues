@@ -5,6 +5,9 @@ import MdLocationOn from 'react-icons/lib/md/location-on';
 import FaGlobe from 'react-icons/lib/fa/globe';
 import Services from '../services/venues';
 
+// todo next fix table styling, make sure there is rating, 
+// make transparent background color for table
+
 const SearchResult = ({ venues }) => {
 	const venue = venues.map((item, index) =>
 		<table>
@@ -15,7 +18,7 @@ const SearchResult = ({ venues }) => {
 			</tr>
 			<tr>
 				<td><FaStarO /></td>
-				<td key={index}>{item.venue.rating} /10 ratings</td>
+				<td key={index}>{item.venue.rating}</td>
 			</tr>
 			<tr>
 				<td><MdLocationOn /></td>
