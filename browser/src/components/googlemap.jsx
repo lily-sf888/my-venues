@@ -3,7 +3,7 @@ import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 import Services from '../services/venues';
 import SearchResult from './searchResult';
 
-const heart = require('../images/heart.gif');
+const locator = require('../images/locator-black.png');
 const purpleHeart = require('../images/purple-heart.png');
 
 export class MapContainer extends Component {
@@ -97,7 +97,7 @@ export class MapContainer extends Component {
 						<Marker
 							name={'User location'}
 							icon={{
-								url: heart,
+								url: locator,
 								anchor: new this.props.google.maps.Point(22, 22),
 								scaledSize: new this.props.google.maps.Size(22, 22)
 							}}

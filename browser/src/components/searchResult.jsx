@@ -3,6 +3,7 @@ import FaStarO from 'react-icons/lib/fa/star-o';
 import FaBuilding from 'react-icons/lib/fa/building';
 import MdLocationOn from 'react-icons/lib/md/location-on';
 import FaGlobe from 'react-icons/lib/fa/globe';
+import FaGittip from 'react-icons/lib/fa/gittip';
 import Services from '../services/venues';
 
 // todo next fix table styling, make sure there is rating, 
@@ -11,7 +12,7 @@ import Services from '../services/venues';
 const SearchResult = ({ venues }) => {
 	const venue = venues.map((item, index) =>
 		<table>
-			<tr><th /><th key={index}>{item.venue.name}</th></tr>
+			<tr><th id="save"><FaGittip /></th><th key={index}>{item.venue.name}</th></tr>
 			<tr>
 				<td className="icons"><FaBuilding /></td>
 				<td key={index}>{item.venue.location.address}, {item.venue.location.city}</td>
