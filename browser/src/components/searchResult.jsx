@@ -11,21 +11,21 @@ import Services from '../services/venues';
 const SearchResult = ({ venues }) => {
 	const venue = venues.map((item, index) =>
 		<table>
-			<tr><th key={index}>{item.venue.name}</th></tr>
+			<tr><th /><th key={index}>{item.venue.name}</th></tr>
 			<tr>
-				<td><FaBuilding /></td>
+				<td className="icons"><FaBuilding /></td>
 				<td key={index}>{item.venue.location.address}, {item.venue.location.city}</td>
 			</tr>
 			<tr>
-				<td><FaStarO /></td>
+				<td className="icons"><FaStarO /></td>
 				<td key={index}>{item.venue.rating}</td>
 			</tr>
 			<tr>
-				<td><MdLocationOn /></td>
+				<td className="icons"><MdLocationOn /></td>
 				<td key={index}>{item.venue.stats.checkinsCount} check-ins</td>
 			</tr>
 			<tr>
-				<td><FaGlobe /></td>
+				<td className="icons"><FaGlobe /></td>
 				<td key={index}>{item.venue.url}</td>
 			</tr>
 		</table>

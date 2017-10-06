@@ -52,19 +52,29 @@ input[type='text']:focus {
 #search-result {
 	color: black;
 	margin-top: 60%;
+	text-align: center;
+	padding-left: 20%;
 }
 
 table {
 	margin: 5% 0;
-	border: 1px solid #ddd;
 	background-color: white;
+	width: 75%;
+	padding: 2px;
+	border-radius: 3px;
+	box-shadow: 1.5px 2px 2px #888888;
 }
 
-th, td {
+td, th {
 	text-align: left;
+	padding: 5px;
 	
 }
 
 table tr:nth-child(even) {
 	background-color: #f2f2f2;
+}
+
+.icons {
+	text-align: center;
 }
