@@ -71,8 +71,7 @@ export class MapContainer extends Component {
 		const venues = this.state.venues;
 
 		return (
-
-			<div className="container">
+			<div>
 				<div className="search">
 					<form>
 						<input
@@ -86,25 +85,26 @@ export class MapContainer extends Component {
 					</form>
 				</div>
 				{userLat && (
-					<Map
-						google={this.props.google}
-						zoom={12}
-						style={{ height: '40%', width: '40%' }}
-						initialCenter={{
-							lat: userLat,
-							lng: userLng
-						}}
-					>
-						<Marker
-
-							name={'User location'}
-							icon={{
-								url: locator,
-								anchor: new this.props.google.maps.Point(22, 22),
-								scaledSize: new this.props.google.maps.Size(22, 22)
+					<div className="map">
+						<Map
+							google={this.props.google}
+							zoom={12}
+							style={{ height: '40%', width: '40%' }}
+							initialCenter={{
+								lat: userLat,
+								lng: userLng
 							}}
-						/>
-						{venues &&
+						>
+							<Marker
+
+								name={'User location'}
+								icon={{
+									url: locator,
+									anchor: new this.props.google.maps.Point(22, 22),
+									scaledSize: new this.props.google.maps.Size(22, 22)
+								}}
+							/>
+							{venues &&
 							venues.map((item, index) => {
 								const lat = item.venue.location.lat;
 								const lng = item.venue.location.lng;
@@ -122,17 +122,17 @@ export class MapContainer extends Component {
 									/>
 								);
 							})}
-					</Map>
+						</Map>
+					</div>
 				)}
 				{venues &&
-					<div id="search-result"><SearchResult
-						venues={venues}
-					/>
+					<div id="search-result">
+						<SearchResult
+							venues={venues}
+						/>
 					</div>
 				}
 			</div>
-
-
 		);
 	}
 }

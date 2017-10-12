@@ -11,29 +11,35 @@ import Services from '../services/venues';
 
 const SearchResult = ({ venues }) => {
 	const venue = venues.map((item, index) =>
-		<table>
-			<tr><th id="save"><FaGittip /></th><th key={index}>{item.venue.name}</th></tr>
-			<tr>
-				<td className="icons"><FaBuilding /></td>
-				<td key={index}>{item.venue.location.address}, {item.venue.location.city}</td>
-			</tr>
-			<tr>
-				<td className="icons"><FaStarO /></td>
-				<td key={index}>{item.venue.rating}</td>
-			</tr>
-			<tr>
-				<td className="icons"><MdLocationOn /></td>
-				<td key={index}>{item.venue.stats.checkinsCount} check-ins</td>
-			</tr>
-			<tr>
-				<td className="icons"><FaGlobe /></td>
-				<td key={index}>{item.venue.url}</td>
-			</tr>
-		</table>
+		<div className="row">
+			<div className="col-sm-4" />
+			<div className="col-sm-4" align="center">
+				<table>
+					<tr><th id="save"><FaGittip /></th><th key={index}>{item.venue.name}</th></tr>
+					<tr>
+						<td className="icons"><FaBuilding /></td>
+						<td key={index}>{item.venue.location.address}, {item.venue.location.city}</td>
+					</tr>
+					<tr>
+						<td className="icons"><FaStarO /></td>
+						<td key={index}>{item.venue.rating}</td>
+					</tr>
+					<tr>
+						<td className="icons"><MdLocationOn /></td>
+						<td key={index}>{item.venue.stats.checkinsCount} check-ins</td>
+					</tr>
+					<tr>
+						<td className="icons"><FaGlobe /></td>
+						<td key={index}>{item.venue.url}</td>
+					</tr>
+				</table>
+			</div>
+			<div className="col-sm-4" />
+		</div>
 	);
 
 	return (
-		<div>
+		<div className="container">
 			{venue}
 		</div>
 	);
