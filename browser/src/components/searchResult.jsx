@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import FaStarO from 'react-icons/lib/fa/star-o';
 import FaBuilding from 'react-icons/lib/fa/building';
 import MdLocationOn from 'react-icons/lib/md/location-on';

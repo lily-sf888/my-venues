@@ -4,7 +4,7 @@ import Services from '../services/venues';
 import SearchResult from './searchResult';
 
 const locator = require('../images/locator-black.png');
-const purpleHeart = require('../images/purple-heart.png');
+const pin = require('../images/pin-smile.png');
 
 export class MapContainer extends Component {
 	constructor(props) {
@@ -23,6 +23,7 @@ export class MapContainer extends Component {
 	componentDidMount() {
 		this.getLocation();
 	}
+
 
 	// uses geolocation api to get current user's location
 	getLocation() {
@@ -71,7 +72,7 @@ export class MapContainer extends Component {
 
 		return (
 
-			<div className="map">
+			<div className="container">
 				<div className="search">
 					<form>
 						<input
@@ -88,13 +89,14 @@ export class MapContainer extends Component {
 					<Map
 						google={this.props.google}
 						zoom={12}
-						style={{ height: '50%', width: '50%' }}
+						style={{ height: '40%', width: '40%' }}
 						initialCenter={{
 							lat: userLat,
 							lng: userLng
 						}}
 					>
 						<Marker
+
 							name={'User location'}
 							icon={{
 								url: locator,
@@ -113,9 +115,9 @@ export class MapContainer extends Component {
 										position={{ lat, lng }}
 										key={key}
 										icon={{
-											url: purpleHeart,
-											anchor: new this.props.google.maps.Point(20, 20),
-											scaledSize: new this.props.google.maps.Size(20, 20)
+											url: pin,
+											anchor: new this.props.google.maps.Point(22, 22),
+											scaledSize: new this.props.google.maps.Size(22, 22)
 										}}
 									/>
 								);
