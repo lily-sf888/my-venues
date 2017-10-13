@@ -10,37 +10,28 @@ import Services from '../services/venues';
 // make transparent background color for table
 
 const SearchResult = ({ venues }) => {
-	const venue = venues.map((item, index) =>
-		<div className="row">
-			<div className="col-sm-4" />
-			<div className="col-sm-4" align="center">
-				<table>
-					<tr><th id="save"><FaGittip /></th><th key={index}>{item.venue.name}</th></tr>
-					<tr>
-						<td className="icons"><FaBuilding /></td>
-						<td key={index}>{item.venue.location.address}, {item.venue.location.city}</td>
-					</tr>
-					<tr>
-						<td className="icons"><FaStarO /></td>
-						<td key={index}>{item.venue.rating}</td>
-					</tr>
-					<tr>
-						<td className="icons"><MdLocationOn /></td>
-						<td key={index}>{item.venue.stats.checkinsCount} check-ins</td>
-					</tr>
-					<tr>
-						<td className="icons"><FaGlobe /></td>
-						<td key={index}>{item.venue.url}</td>
-					</tr>
-				</table>
-			</div>
-			<div className="col-sm-4" />
+	const venue = venues.map(item =>
+		<div className="col-sm-3">
+			<div className="d-inline save"><FaGittip /></div>
+			<div className="d-inline font-weight-bold">{item.venue.name}</div><br />
+			<div className="d-inline"><FaBuilding /></div>
+			<div className="d-inline">{item.venue.location.address}, {item.venue.location.city}</div><br />
+			<div className="d-inline"><FaStarO /></div>
+			<div className="d-inline">{item.venue.rating}/10 rating</div><br />
+			<div className="d-inline"><MdLocationOn /></div>
+			<div className="d-inline">{item.venue.stats.checkinsCount} check-ins</div><br />
+			<div className="d-inline"><FaGlobe /></div>
+			<div className="d-inline"><a href={item.venue.url}>website</a></div>
 		</div>
 	);
 
 	return (
 		<div className="container">
-			{venue}
+			<div className="row-container">
+				<div className="row">
+					{venue}
+				</div>
+			</div>
 		</div>
 	);
 };

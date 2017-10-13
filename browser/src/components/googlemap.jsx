@@ -85,7 +85,7 @@ export class MapContainer extends Component {
 					</form>
 				</div>
 				{userLat && (
-					<div className="map">
+					<div className="map text-center">
 						<Map
 							google={this.props.google}
 							zoom={12}
