@@ -27,10 +27,8 @@ const SearchResult = ({ venues }) => {
 
 	return (
 		<div className="container">
-			<div className="row-container">
-				<div className="row">
-					{venue}
-				</div>
+			<div className="row">
+				{venue}
 			</div>
 		</div>
 	);

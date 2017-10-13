@@ -35,10 +35,12 @@ export class MapContainer extends Component {
 	}
 
 	setLocation(position) {
-		this.setState(() => ({
-			userLat: position.coords.latitude,
-			userLng: position.coords.longitude
-		}));
+		if (position) {
+			this.setState(() => ({
+				userLat: position.coords.latitude,
+				userLng: position.coords.longitude
+			}));
+		}
 	}
 
 	handleChange(e) {
@@ -84,8 +86,9 @@ export class MapContainer extends Component {
 						/>
 					</form>
 				</div>
-				{userLat && (
-					<div className="map text-center">
+				<div className="map">
+					{userLat && (
+
 						<Map
 							google={this.props.google}
 							zoom={12}
@@ -96,7 +99,6 @@ export class MapContainer extends Component {
 							}}
 						>
 							<Marker
-
 								name={'User location'}
 								icon={{
 									url: locator,
@@ -123,8 +125,8 @@ export class MapContainer extends Component {
 								);
 							})}
 						</Map>
-					</div>
-				)}
+					)}
+				</div>
 				{venues &&
 					<div id="search-result">
 						<SearchResult
