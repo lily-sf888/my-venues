@@ -4,7 +4,7 @@ import Services from '../services/venues';
 import SearchResult from './searchResult';
 
 const locator = require('../images/locator-black.png');
-const pin = require('../images/pin-smile.png');
+const pin = require('../images/orange-pin.png');
 
 export class MapContainer extends Component {
 	constructor(props) {
@@ -54,6 +54,10 @@ export class MapContainer extends Component {
 
 		e.preventDefault();
 
+		this.setState({
+			value: ''
+		});
+
 		const searchText = this.state.value;
 		const userLat = this.state.userLat;
 		const userLng = this.state.userLng;
@@ -92,7 +96,7 @@ export class MapContainer extends Component {
 						<Map
 							google={this.props.google}
 							zoom={12}
-							style={{ height: '40%', width: '40%' }}
+							style={{ height: '62%', width: '62%' }}
 							initialCenter={{
 								lat: userLat,
 								lng: userLng
@@ -102,8 +106,8 @@ export class MapContainer extends Component {
 								name={'User location'}
 								icon={{
 									url: locator,
-									anchor: new this.props.google.maps.Point(22, 22),
-									scaledSize: new this.props.google.maps.Size(22, 22)
+									anchor: new this.props.google.maps.Point(25, 25),
+									scaledSize: new this.props.google.maps.Size(25, 25)
 								}}
 							/>
 							{venues &&

@@ -21,7 +21,7 @@ const SearchResult = ({ venues }) => {
 			<div className="d-inline"><MdLocationOn /></div>
 			<div className="d-inline">{item.venue.stats.checkinsCount} check-ins</div><br />
 			<div className="d-inline"><FaGlobe /></div>
-			<div className="d-inline"><a href={item.venue.url}>website</a></div>
+			<div className="d-inline"><a href={item.venue.url} target="_blank">website</a></div>
 		</div>
 	);
 
