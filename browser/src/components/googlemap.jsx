@@ -104,11 +104,6 @@ export class MapContainer extends Component {
 						>
 							<Marker
 								name={'User location'}
-								icon={{
-									url: locator,
-									anchor: new this.props.google.maps.Point(25, 25),
-									scaledSize: new this.props.google.maps.Size(25, 25)
-								}}
 							/>
 							{venues &&
 							venues.map((item, index) => {
@@ -120,11 +115,6 @@ export class MapContainer extends Component {
 									<Marker
 										position={{ lat, lng }}
 										key={key}
-										icon={{
-											url: pin,
-											anchor: new this.props.google.maps.Point(22, 22),
-											scaledSize: new this.props.google.maps.Size(22, 22)
-										}}
 									/>
 								);
 							})}
