@@ -15,12 +15,6 @@ router.get('/', (req, res, next) => {
 	next();
 });
 
-/**
- * Base routes
- *https://api.foursquare.com/v2/venues/explore?ll=40.7,-74&client_id=process.env.CLIENT_ID&client_secret=process.env.CLIENT_SECRET&v=20170824&query=yoga
- *
- */
-
 router.get('/mylocation', (req, res) => {
 	// accessing query with latitude and longitude info and storing it
 	const query = req.query;

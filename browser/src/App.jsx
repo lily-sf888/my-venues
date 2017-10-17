@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
-import fetch from 'isomorphic-fetch';
-import 'es6-promise/auto';
+import React from 'react';
 import './App.css';
 
 import GoogleApiWrapper from './components/googlemap';
 
-const locator = require('./images/locator.gif');
+const locator = require('./images/purple-locator.png');
 
 const App = () => (
 	<div className="App">

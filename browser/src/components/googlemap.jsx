@@ -3,9 +3,6 @@ import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 import Services from '../services/venues';
 import SearchResult from './searchResult';
 
-const locator = require('../images/locator-black.png');
-const pin = require('../images/orange-pin.png');
-
 export class MapContainer extends Component {
 	constructor(props) {
 		super(props);
@@ -48,7 +45,8 @@ export class MapContainer extends Component {
 			value: e.target.value
 		});
 	}
-
+	// when user hits enter in the search field, we call getVenues and bring back the data from
+	// foursquare and set them in state
 	handleKeyPress(e) {
 		if (e.key !== 'Enter') return;
 
@@ -92,7 +90,6 @@ export class MapContainer extends Component {
 				</div>
 				<div className="map">
 					{userLat && (
-
 						<Map
 							google={this.props.google}
 							zoom={12}

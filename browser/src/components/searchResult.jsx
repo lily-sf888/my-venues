@@ -4,10 +4,6 @@ import FaBuilding from 'react-icons/lib/fa/building';
 import MdLocationOn from 'react-icons/lib/md/location-on';
 import FaGlobe from 'react-icons/lib/fa/globe';
 import FaGittip from 'react-icons/lib/fa/gittip';
-import Services from '../services/venues';
-
-// todo next fix table styling, make sure there is rating, 
-// make transparent background color for table
 
 const SearchResult = ({ venues }) => {
 	const venue = venues.map(item =>

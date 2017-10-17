@@ -4,6 +4,9 @@
  * @param  {string} searchTerm: term to search for matching venues
  * @return {promise}
  */
+import fetch from 'isomorphic-fetch';
+import 'es6-promise/auto';
+
 const getVenues = (userLat, userLng, searchText) => {
 	const url = `/mylocation?userLat=${userLat}&userLng=${userLng}&searchText=${searchText}`;
 
