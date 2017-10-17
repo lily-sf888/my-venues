@@ -4,8 +4,6 @@ import 'es6-promise/auto';
 import './App.css';
 
 import GoogleApiWrapper from './components/googlemap';
-import Grid from './components/grid';
-
 
 const locator = require('./images/locator.gif');
 
