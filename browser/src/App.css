@@ -26,18 +26,35 @@ body {
 .App-logo {
 	height: 80px;
 	padding: 1% 0;
+	z-index: 500;
 }
 
 .App-header {
-	background-color: darkblue;
 	width: 100%;
 	height: 125px;
-	color: #8937df;
+	color: black;
 	box-shadow: 1.5px 1.5px 2px #999;
 	text-align: center;
 	position: fixed;
 	z-index: 100;
+	background-size: cover;
+	background-image:
+	linear-gradient(to bottom right, rgba(56,9,244, 0.6), rgba(237,18,197, 0.6)), 
+	url('./images/love-sf.jpg');
+	background-position: center center no-repeat;
 }
+
+/*gradient overlay over sf background image*/
+/* .App-header::before {
+  content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: linear-gradient(to bottom right,darkblue,#e510da);
+	opacity: .6; 
+} */
 
 .App-intro {
 	font-size: large;
@@ -94,10 +111,6 @@ input[type='text']:focus {
 	color: blueviolet;
 }
 
-.col, .col-sm {
-	border: solid 1px red; 
-}
-
 .row {
 	justify-content: center;
 }
@@ -108,6 +121,7 @@ h2 {
 	font-style: italic;
 	text-shadow: 1px 1px black;
 	padding-bottom: 2%;
+	
 }
 
 #row-result {
