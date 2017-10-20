@@ -13,7 +13,7 @@ const SearchResult = ({ venues }) => {
 			<div className="d-inline"><FaBuilding /></div>
 			<div className="d-inline">{item.venue.location.address}, {item.venue.location.city}</div><br />
 			<div className="d-inline"><FaStarO /></div>
-			<div className="d-inline">{item.venue.rating}/10 rating</div><br />
+			<div className="d-inline">{item.venue.rating}</div><br />
 			<div className="d-inline"><MdLocationOn /></div>
 			<div className="d-inline">{item.venue.stats.checkinsCount} check-ins</div><br />
 			<div className="d-inline"><FaGlobe /></div>
