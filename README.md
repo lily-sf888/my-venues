@@ -16,7 +16,7 @@
 
 My Venues let's users search for closest trending venues based on their current location using the [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation) and the [Foursquare API](https://developer.foursquare.com/). 
 
-<img src="venues1.png" width="600" height="450" alt="My Venues" />
+<img src="venues1.png" width="400" height="300" alt="My Venues" />
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
