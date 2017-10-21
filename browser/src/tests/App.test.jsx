@@ -26,7 +26,7 @@ it('SearchResult renders', () => {
 	const mockVenues = [
 		{
 			venue: {
-				name: 'dong',
+				name: 'lulu',
 				location: {
 					city: 'san fran'
 				},

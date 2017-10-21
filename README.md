@@ -20,15 +20,6 @@ My Venues let's users search for closest trending venues based on their current 
 <img src="venues2.png" width="300" height="200" alt="My Venues" />
 <img src="venues3.png" width="300" height="200" alt="My Venues" />
 
-### To run this app locally
-
-After cloning this repo, in your terminal run
-`cd my-venues`
-`cd server`
-`npm install`
-``
-
-
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
