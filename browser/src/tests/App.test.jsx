@@ -20,12 +20,24 @@ it('GoogleApiWrapper renders', () => {
 	/>, div);
 });
 
+// feed array of objects
 it('SearchResult renders', () => {
 	const div = document.createElement('div');
-	const mockVenue = {
-		name: 'testName'
-	};
+	const mockVenues = [
+		{
+			venue: {
+				name: 'dong',
+				location: {
+					city: 'san fran'
+				},
+				stats: {
+					checkinsCount: 4
+				},
+				url: 'http://blah.com'
+			}
+		}
+	];
 	ReactDOM.render(<SearchResult
-		name={mockVenue}
+		venues={mockVenues}
 	/>, div);
 });
